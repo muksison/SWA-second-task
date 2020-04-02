@@ -1,0 +1,105 @@
+*, *:before, *:after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  font-family: 'Quicksand', sans-serif;
+	text-align: center;
+	padding:10px;
+   }
+
+a{
+	text-decoration: none;
+	  color: #0f7bff;
+    font-size: 16px;
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #929292; }
+
+#content{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	max-width: 750px;
+	margin: auto;
+	padding-top: 10px;
+	  background-color: #f5fcfd;
+}
+
+.content__block{
+	width: 100%;
+	max-width: 700px;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 0.8fr));
+	grid-auto-rows: minmax(24px,70px);/*repeat(auto-fit,minmax(24px,100px));*/
+
+}
+
+.title{
+	font-size: 20px;
+	font-weight: bold;
+	color: #0f7bff;
+}
+
+.content__label{
+	font-size: 24px;
+	padding:15px;
+	color: #0f7bff;
+	align-self: center;
+	justify-self:center;
+}
+
+.checkbox{
+	width: 24px;
+	height: 24px;
+	align-self: center;
+	justify-self:center;
+}
+
+.colors{
+	align-self: center;
+	justify-self:center;
+}
+
+.inputs{
+	width: 100%;
+	  max-width: 300px;
+	  padding: 6px;
+	  border-radius: 5px;
+	  border: 1px solid #dcdcdc;
+	  font-family: Quicksand;
+	  font-size: 16px;
+	  align-self: center;
+		justify-self:center;
+}
+
+.content__block__ref{
+	width: 100%;
+	max-width: 310px;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	
+}
+
+.btns {
+  padding: 5px 20px;
+  background-color: #0f7bff;
+  border-radius: 25px;
+  color: white;
+  margin-top: 20px; }
+
+.btns:hover{
+	cursor: pointer;
+}
