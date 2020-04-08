@@ -15,7 +15,7 @@ $(document).ready(function(){
 	// interview
 	const jsonstring5 = '{"name":"interview","fields":[{"label":"Введите своё ФИО","input":{"type":"text","required":true,"placeholder":"Иванов Иван Иванович"}},{"label":"Введите Номер телефона","input":{"type":"number","required":true,"mask":"+7 (999) 99-99-999"}},{"label":"Введите свою Почту","input":{"type":"email","required":true,"placeholder":"example@mail.com"}},{"label":"Введите свой возраст","input":{"type":"number","required":true}},{"label":"Введите вашу специальность","input":{"type":"text","required":true}},{"label":"Выберете технологии, с которыми вы работали","input":{"type":"technology","required":true,"technologies":["PHP","JS","Laravel","Express.js","Yii2","HTML","CSS","Java"],"multiple":true}},{"label":"Ваш срок работы","input":{"type":"number","required":true}},{"label":"Ваша фотография","input":{"type":"file","required":true}},{"label":"Серия, номер","input":{"type":"number","required":true,"mask":"99-99 999999"}},{"label":"Код подразделения","input":{"type":"number","required":true,"mask":"999-999"}},{"label":"Скан / Фото паспорта (1 страница)","input":{"type":"file","required":true,"multiple":true,"filetype":["png","jpeg","pdf"]}},{"label":"Расскажите немного о себе","input":{"type":"textarea","required:":true}}],"references":[{"input":{"type":"checkbox","required":true,"checked":"false"}},{"text without ref":"I accept the","text":"Terms & Conditions","ref":"termsandconditions"}],"buttons":[{"text":"Send"},{"text":"Cancel"}]}'
 
-	var obj = JSON.parse(jsonstring5);
+	var obj = JSON.parse(jsonstring2);
 
 	var titleText;
 	
@@ -73,31 +73,26 @@ $(document).ready(function(){
 			}
 			input.setAttribute('type',this.type);
 			input.setAttribute('class','inputs');
-			if ((this.required != false)&&(this.required != undefined)){input.setAttribute('required','true');}
+			// input.setAttribute('id','input_field'+this.i);
+			if ((this.required != undefined)){input.setAttribute('required','true');}
 			if ((this.placeholder !='')&&(this.placeholder != undefined)){input.setAttribute('placeholder',this.placeholder);}			
 			document.getElementById('content__block'+this.i).appendChild(input);
 		}
 
 		insertInptsFile(){
 			let label_file = document.createElement('label');
-			label_file.setAttribute('for','myfile');
+			label_file.setAttribute('for','myfile'+this.i);
 			label_file.setAttribute('class','chous');
 			label_file.innerHTML = "Выберите файлы";
 			document.getElementById('content__block' + this.i).appendChild(label_file);
 
 			let input = document.createElement('input');
 			input.setAttribute('type',this.type);
-			if (this.filetype != undefined){
-				input.setAttribute('accept', '*.jpg');
-			}
+			if (this.filetype != undefined){input.setAttribute('accept', '.png,.jpeg,.pdf');}
 			input.setAttribute('class','my');
-			input.setAttribute('id','myfile');
+			input.setAttribute('id','myfile'+this.i);
 			input.setAttribute('name','myFile');
-			
-			
-			
-			// input.setAttribute('accept','.jpg,.png,.pdf');
-			input.setAttribute('multiple', this.multiple);			
+			if (this.multiple != undefined){input.setAttribute('multiple', this.multiple);}			
 			document.getElementById('content__block' + this.i).appendChild(input);
 				$('.my').change(function() {
    					if ($(this).val() != '') $(this).prev().text('Выбрано файлов: ' + $(this)[0].files.length);
