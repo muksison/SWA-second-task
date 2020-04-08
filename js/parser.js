@@ -73,9 +73,13 @@ $(document).ready(function(){
 			}
 			input.setAttribute('type',this.type);
 			input.setAttribute('class','inputs');
-			// input.setAttribute('id','input_field'+this.i);
-			if ((this.required != undefined)){input.setAttribute('required','true');}
+			// input.setAttribute('id','input_field'+this.i);			
 			if ((this.placeholder !='')&&(this.placeholder != undefined)){input.setAttribute('placeholder',this.placeholder);}			
+			if ((this.required != undefined)){
+				// input.setAttribute('required','true');
+				let attr = document.createAttribute('required');
+				input.setAttributeNode(attr);
+			}
 			document.getElementById('content__block'+this.i).appendChild(input);
 		}
 
@@ -163,6 +167,7 @@ $(document).ready(function(){
 		}
 		InsertTextArea(){
 			let textarea_item = document.createElement('textarea');
+			if ((this.required != undefined)){textarea_item.setAttribute('required','true');}
 			document.getElementById('content__block'+this.i).appendChild(textarea_item);
 		}
 
